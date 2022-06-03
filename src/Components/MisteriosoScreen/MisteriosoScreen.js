@@ -54,7 +54,7 @@ const ItemBox = (props) => {
       className={"itemBox offerta" + Number(props.index + 1)}
       onClick={onItemBoxClick}
     >
-      <img src={"./KikisKeyWebGame/img/items/" + props.itemOfferto + ".png"} />
+      <img src={"/KikisKeyWebGame/img/items/" + props.itemOfferto + ".png"} />
     </div>
   );
 };
@@ -110,13 +110,13 @@ const PopupItem = (props) => {
           />
         </div>
         <div className="popupMano">
-          <img src="./KikisKeyWebGame/img/misc/mano.png" />
+          <img src="/KikisKeyWebGame/img/misc/mano.png" />
         </div>
         <div className="itemBox popupOfferta">
           <img
             ref={imgItemOffertoRef}
             src={
-              "./KikisKeyWebGame/img/items/" +
+              "/KikisKeyWebGame/img/items/" +
               props.misteriosoItems[props.popupItemData[1]].itemOfferto +
               ".png"
             }

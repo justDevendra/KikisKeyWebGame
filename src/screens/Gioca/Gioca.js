@@ -226,23 +226,23 @@ const Gioca = () => {
         <canvas className="canvas" ref={canvasRef} width={1152} height={672}>
           <Character
             characterRef={playerRef}
-            defaultImg="./KikisKeyWebGame/img/characters/kiki/down/1.png"
+            defaultImg="/KikisKeyWebGame/img/characters/kiki/down/1.png"
           />
           <Character
             characterRef={bidello1Ref}
-            defaultImg="./KikisKeyWebGame/img/characters/bidello/left/2.png"
+            defaultImg="/KikisKeyWebGame/img/characters/bidello/left/2.png"
           />
           <Stanza
-            defaultImg1="./KikisKeyWebGame/img/stanze/chimica1/layer1.png"
-            defaultImg2="./KikisKeyWebGame/img/stanze/chimica1/layer2.png"
+            defaultImg1="/KikisKeyWebGame/img/stanze/chimica1/layer1.png"
+            defaultImg2="/KikisKeyWebGame/img/stanze/chimica1/layer2.png"
           />
           <Oggetto
             oggettoRef={monetaComuneRef}
-            img="./KikisKeyWebGame/img/oggetti/MonetaComune.png"
+            img="/KikisKeyWebGame/img/oggetti/MonetaComune.png"
           />
           <Oggetto
             oggettoRef={finestraRottaRef}
-            img="./KikisKeyWebGame/img/misc/finestraRotta.png"
+            img="/KikisKeyWebGame/img/misc/finestraRotta.png"
           />
         </canvas>
         <Mani />

@@ -34,7 +34,7 @@ const useBidello = () => {
 
   const changeImg = (bidelloRef, direction, bidelloImgIndex) => {
     bidelloRef.current.src =
-      "./KikisKeyWebGame/img/characters/bidello/" +
+      "/KikisKeyWebGame/img/characters/bidello/" +
       direction +
       "/" +
       bidelloImgIndex +

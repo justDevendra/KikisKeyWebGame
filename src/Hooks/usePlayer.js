@@ -106,7 +106,7 @@ const usePlayer = () => {
 
   const animate = (cmdName) => {
     playerRef.current.src =
-      "./KikisKeyWebGame/img/characters/kiki/" +
+      "/KikisKeyWebGame/img/characters/kiki/" +
       cmdName +
       "/" +
       playerImgIndex +

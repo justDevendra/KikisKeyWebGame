@@ -70,7 +70,7 @@ const Item = (props) => {
     return (
       <>
         <img
-          src={"./KikisKeyWebGame/img/items/" + props.name + ".png"}
+          src={"/KikisKeyWebGame/img/items/" + props.name + ".png"}
           ref={drag}
         />
         <p className="nomeItem">{props.name}</p>
