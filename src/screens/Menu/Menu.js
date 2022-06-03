@@ -44,13 +44,13 @@ const Menu = (props) => {
         transition={{ duration: 0.4 }}
       >
         <p className="titoloMenu">KIKI'S KEY</p>
-        <Link to="/Gioca">
+        <Link to="/KikisKeyWebGame/Gioca">
           <motion.div whileHover={{ x: 10 }} className="actionBtnMenu giocaBtn">
             GIOCA
           </motion.div>
         </Link>
         <div className="spacerXBtns" />
-        <Link to="/Opzioni">
+        <Link to="/KikisKeyWebGame/Opzioni">
           <motion.div
             whileHover={{ x: 10 }}
             className="actionBtnMenu opzioniBtn"
@@ -59,7 +59,7 @@ const Menu = (props) => {
           </motion.div>
         </Link>
         <div className="spacerXBtns" />
-        <Link to="/Classifica">
+        <Link to="/KikisKeyWebGame/Classifica">
           <motion.div
             whileHover={{ x: 10 }}
             className="actionBtnMenu classificaBtn"
