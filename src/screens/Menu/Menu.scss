@@ -1,0 +1,87 @@
+$colorePrimario: #333333;
+$coloreSecondario: #e5b62e;
+
+$titolo: clamp(3.3rem, 5.8vw, 5rem);
+
+.contenitoreMenu {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./../../../assets/img/Game/sfondo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contenutoMenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  width: 80%;
+  margin-left: 10%;
+  min-width: 380px;
+  z-index: 2;
+}
+
+.particlesDiv {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.titoloMenu {
+  font-size: $titolo;
+  color: $coloreSecondario;
+  margin-bottom: 50px;
+}
+
+.actionBtnMenu {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #ffffff;
+  width: 300px;
+  height: 100px;
+  background-size: contain;
+}
+
+.actionBtnMenu:hover {
+  color: #000000;
+}
+
+.giocaBtn {
+  background-image: url(./../../../assets/img/Game/btn1.png);
+}
+
+.opzioniBtn {
+  background-image: url(./../../../assets/img/Game/btn2.png);
+}
+
+.classificaBtn {
+  background-image: url(./../../../assets/img/Game/btn1.png);
+}
+
+@media (max-width: 1199.98px) {
+  .contenutoMenu {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .actionBtnMenu {
+    width: 250px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .contenutoMenu {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
+  }
+}

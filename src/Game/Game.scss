@@ -1,0 +1,51 @@
+$colorePrimario: #333333;
+$coloreSecondario: #e5b62e;
+
+$testo: clamp(1.5rem, 1vw, 1.5rem);
+
+@font-face {
+  font-family: forwardFont;
+  src: url("../../assets/fonts/forwardFont.TTF");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  font-family: forwardFont;
+  font-size: $testo;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  width: fit-content;
+}
+
+.spacerXBtns {
+  margin-bottom: 25px;
+}
+
+.spacerYBtns {
+  margin-right: 25px;
+  display: inline-block;
+}
+
+.filtroBN {
+  filter: grayscale(1);
+}
+
+:root {
+  --toastify-font-family: forwardFont !important;
+  --toastify-z-index: 98 !important;
+  --toastify-text-color-light: #333333 !important;
+  --toastify-color-progress-light: #e5b62e !important;
+}
+
+.Toastify__toast-body {
+  font-size: 15px !important;
+}

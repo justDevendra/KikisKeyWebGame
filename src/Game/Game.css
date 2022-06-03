@@ -1,0 +1,54 @@
+@font-face {
+  font-family: forwardFont;
+  src: url("../../assets/fonts/forwardFont.TTF");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  font-family: forwardFont;
+  font-size: clamp(1.5rem, 1vw, 1.5rem);
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.spacerXBtns {
+  margin-bottom: 25px;
+}
+
+.spacerYBtns {
+  margin-right: 25px;
+  display: inline-block;
+}
+
+.filtroBN {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+:root {
+  --toastify-font-family: forwardFont !important;
+  --toastify-z-index: 98 !important;
+  --toastify-text-color-light: #333333 !important;
+  --toastify-color-progress-light: #e5b62e !important;
+}
+
+.Toastify__toast-body {
+  font-size: 15px !important;
+}
+/*# sourceMappingURL=Game.css.map */
