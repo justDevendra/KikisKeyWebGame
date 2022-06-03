@@ -103,7 +103,7 @@ const PopupItem = (props) => {
         <div className="itemBox popupScambio">
           <img
             src={
-              "./KikisKeyWebGame/img/items/" +
+              "/KikisKeyWebGame/img/items/" +
               props.misteriosoItems[props.popupItemData[1]].itemScambio +
               ".png"
             }

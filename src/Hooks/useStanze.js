@@ -37,11 +37,11 @@ const useStanze = () => {
       ) {
         gameData.current["stanzaCorrente"] = arrPorteStanza[i].stanza;
         stanzaLayer1Ref.current.src =
-          "./KikisKeyWebGame/img/stanze/" +
+          "/KikisKeyWebGame/img/stanze/" +
           arrPorteStanza[i].stanza +
           "/layer1.png";
         stanzaLayer2Ref.current.src =
-          "./KikisKeyWebGame/img/stanze/" +
+          "/KikisKeyWebGame/img/stanze/" +
           arrPorteStanza[i].stanza +
           "/layer2.png";
 
