@@ -65,7 +65,7 @@ const Classifica = () => {
             </li>
           </ul>
         </div>
-        <Link to="/KikisKeyWebGame">
+        <Link to="/">
           <div className="contenitoreActionBtns">
             <motion.div
               whileHover={{ scale: 1.025 }}

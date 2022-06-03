@@ -44,7 +44,7 @@ const Opzioni = (props) => {
         transition={{ duration: 0.4 }}
       >
         <p className="titoloOpz">OPZIONI</p>
-        <Link to="/KikisKeyWebGame/Opzioni/Audio">
+        <Link to="/Opzioni/Audio">
           <motion.div
             whileHover={{ scale: 1.025 }}
             className="actionBtnOpz audioBtn"
@@ -53,7 +53,7 @@ const Opzioni = (props) => {
           </motion.div>
         </Link>
         <div className="spacerXBtns" />
-        <Link to="/KikisKeyWebGame">
+        <Link to="/">
           <motion.div
             whileHover={{ scale: 1.025 }}
             className="actionBtnOpz indietroBtn"

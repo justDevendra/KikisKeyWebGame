@@ -89,7 +89,7 @@ const Audio = () => {
           />
         </div>
         <div className="spacerXBtns"></div>
-        <Link to="/KikisKeyWebGame/Opzioni">
+        <Link to="/Opzioni">
           <motion.div
             whileHover={{ scale: 1.025 }}
             className="actionBtnAudio indietroBtn"

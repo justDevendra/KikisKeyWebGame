@@ -132,17 +132,11 @@ const Game = () => {
 
           <AnimatePresence exitBeforeEnter initial={false}>
             <Routes location={location} key={location.pathname}>
-              <Route path="/KikisKeyWebGame/*" element={<Menu />} />
-              <Route path="/KikisKeyWebGame/Gioca" element={<Gioca />} />
-              <Route path="/KikisKeyWebGame/Opzioni" element={<Opzioni />} />
-              <Route
-                path="/KikisKeyWebGame/Opzioni/Audio"
-                element={<Audio />}
-              />
-              <Route
-                path="/KikisKeyWebGame/Classifica"
-                element={<Classifica />}
-              />
+              <Route path="/*" element={<Menu />} />
+              <Route path="/Gioca" element={<Gioca />} />
+              <Route path="/Opzioni" element={<Opzioni />} />
+              <Route path="/Opzioni/Audio" element={<Audio />} />
+              <Route path="/Classifica" element={<Classifica />} />
             </Routes>
           </AnimatePresence>
         </gameContext.Provider>
