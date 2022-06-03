@@ -84,7 +84,6 @@ const useInteractData = () => {
 
           gameData.current.startedCapitoli.due = true; //capitolo 2 iniziato
         } else {
-          console.log(checkSelectedItem("Acido"));
           showToast("Porta chiusa");
         }
       },
@@ -144,26 +143,10 @@ const useInteractData = () => {
         y: 1008,
       },
       cmd: () => {
-        if (checkItem("Martello")) {
+        if (checkSelectedItem("Martello")) {
           gameData.current.finestraRotta = true;
           setPortaStanza("corridoio", 6, false);
           setPortaStanza("bidelleria", 1, false);
-        }
-      },
-    },
-    {
-      name: "martella finestra",
-      stanza: {
-        name: "corridoio",
-        x: 2784,
-        y: 1008,
-      },
-      cmd: () => {
-        if (checkItem("Martello")) {
-          gameData.current.finestraRotta = true;
-          setPortaStanza("corridoio", 6, false);
-          setPortaStanza("bidelleria", 1, false);
-          showToast("finestra spaccccatta!");
         }
       },
     },
@@ -187,7 +170,7 @@ const useInteractData = () => {
         y: 2880,
       },
       cmd: () => {
-        if (checkItem("ID")) {
+        if (checkSelectedItem("ID")) {
           setPortaStanza("corridoio", 7, false);
           showToast("Porta ufficio preside aperta");
         } else {
