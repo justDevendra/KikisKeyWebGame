@@ -34,7 +34,7 @@
   -ms-grid-rows: (1fr)[2];
       grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 20px;
-  grid-row-gap: 50px;
+  grid-row-gap: 60px;
 }
 
 .box {

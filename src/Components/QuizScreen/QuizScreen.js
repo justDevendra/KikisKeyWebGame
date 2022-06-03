@@ -13,6 +13,7 @@ const QuizScreen = () => {
 
   const check = () => {
     if (risposta === gameData.current.quizCorrente.risposta) {
+      gameData.current.rispostoDomande[gameData.current.quizCorrente.id] = true;
       aggiungiItem(gameData.current.quizCorrente.ricompensa);
       showToast("Risposta corretta");
     } else {

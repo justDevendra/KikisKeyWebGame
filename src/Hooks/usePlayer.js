@@ -106,7 +106,11 @@ const usePlayer = () => {
 
   const animate = (cmdName) => {
     playerRef.current.src =
-      "/img/characters/kiki/" + cmdName + "/" + playerImgIndex + ".png";
+      "./KikisKeyWebGame/img/characters/kiki/" +
+      cmdName +
+      "/" +
+      playerImgIndex +
+      ".png";
 
     if (playerImgIndex >= 3) {
       playerImgIndex = 1;

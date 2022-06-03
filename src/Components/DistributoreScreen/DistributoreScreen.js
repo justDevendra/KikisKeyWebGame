@@ -28,21 +28,21 @@ const DistributoreScreen = () => {
       <p className="titoloDistributore">Distributore</p>
       <div className="contenitoreProdottiDistri">
         <div className="imgProdotto1">
-          <img src="/img/misc/Patate.png" width="100px"></img>
+          <img src="./KikisKeyWebGame/img/misc/Patate.png" width="100px"></img>
         </div>
         <div className="costoProdotto1">
-          <img src="/img/items/Moneta Comune.png" />
-          <img src="/img/items/Moneta Rara.png" />
+          <img src="./KikisKeyWebGame/img/items/Moneta Comune.png" />
+          <img src="./KikisKeyWebGame/img/items/Moneta Rara.png" />
         </div>
         <div className="compraProdotto1" onClick={compraProdotto1}>
           <p>Compra</p>
         </div>
         <div className="imgProdotto2">
-          <img src="/img/items/Bibita.png" />
+          <img src="./KikisKeyWebGame/img/items/Bibita.png" />
         </div>
         <div className="costoProdotto2">
-          <img src="/img/items/Moneta Rara.png" />
-          <img src="/img/items/Moneta Rara.png" />
+          <img src="./KikisKeyWebGame/img/items/Moneta Rara.png" />
+          <img src="./KikisKeyWebGame/img/items/Moneta Rara.png" />
         </div>
         <div className="compraProdotto2" onClick={compraProdotto2}>
           <p>Compra</p>

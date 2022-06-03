@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAKA,UAAU;EACR,WAAW,EAAE,WAAW;EACxB,GAAG,EAAE,4CAA4C;;;AAGnD,AAAA,sBAAsB,CAAC;EACrB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,kBAAkB;EACpC,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,SAAS,EAAE,KAAK;EAChB,OAAO,EAAE,EAAE;CACZ;;AAED,AAAA,oBAAoB,CAAC;EACnB,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,wBAAwB;EACnC,aAAa,EAAE,IAAI;CACpB",
     "sources": [
-        "infoScreen.scss"
+        "InfoScreen.scss"
     ],
     "names": [],
-    "file": "infoScreen.css"
+    "file": "InfoScreen.css"
 }

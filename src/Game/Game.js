@@ -71,6 +71,7 @@ const Game = () => {
       tre: false,
     },
     quizCorrente: {
+      id: null,
       nomeQuiz: "",
       domanda: "",
       risposta: "",
@@ -81,6 +82,7 @@ const Game = () => {
     trovatoIdrogeno: false,
     creatoAcido: false,
     portaSciolta: false,
+    rispostoDomande: [false, false],
     monetaComuneRaccolta: false,
     finestraRotta: false,
   });

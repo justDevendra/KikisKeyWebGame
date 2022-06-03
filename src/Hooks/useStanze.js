@@ -37,9 +37,13 @@ const useStanze = () => {
       ) {
         gameData.current["stanzaCorrente"] = arrPorteStanza[i].stanza;
         stanzaLayer1Ref.current.src =
-          "/img/stanze/" + arrPorteStanza[i].stanza + "/layer1.png";
+          "./KikisKeyWebGame/img/stanze/" +
+          arrPorteStanza[i].stanza +
+          "/layer1.png";
         stanzaLayer2Ref.current.src =
-          "/img/stanze/" + arrPorteStanza[i].stanza + "/layer2.png";
+          "./KikisKeyWebGame/img/stanze/" +
+          arrPorteStanza[i].stanza +
+          "/layer2.png";
 
         let spawnPlayerX = arrPorteStanza[i].spawnPlayer[0];
         let spawnPlayerY = arrPorteStanza[i].spawnPlayer[1];
