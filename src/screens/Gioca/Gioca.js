@@ -238,7 +238,7 @@ const Gioca = () => {
           />
           <Oggetto
             oggettoRef={monetaComuneRef}
-            img="./KikisKeyWebGame/img/oggetti/MonetaComune.png"
+            img="./KikisKeyWebGame/img/oggetti/Moneta Comune.png"
           />
           <Oggetto
             oggettoRef={finestraRottaRef}
