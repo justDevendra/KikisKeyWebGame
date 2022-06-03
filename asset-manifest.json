@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/KikisKeyWebGame/static/css/main.d9224a29.css",
-    "main.js": "/KikisKeyWebGame/static/js/main.a4e221f9.js",
+    "main.css": "/KikisKeyWebGame/static/css/main.2ca47b61.css",
+    "main.js": "/KikisKeyWebGame/static/js/main.8758b945.js",
     "static/media/sfondo.png": "/KikisKeyWebGame/static/media/sfondo.f66688204a0e00edc579.png",
     "static/media/forwardFont.TTF": "/KikisKeyWebGame/static/media/forwardFont.82f7ff73ad3454fbbf6f.TTF",
     "index.html": "/KikisKeyWebGame/index.html",
-    "main.d9224a29.css.map": "/KikisKeyWebGame/static/css/main.d9224a29.css.map",
-    "main.a4e221f9.js.map": "/KikisKeyWebGame/static/js/main.a4e221f9.js.map"
+    "main.2ca47b61.css.map": "/KikisKeyWebGame/static/css/main.2ca47b61.css.map",
+    "main.8758b945.js.map": "/KikisKeyWebGame/static/js/main.8758b945.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9224a29.css",
-    "static/js/main.a4e221f9.js"
+    "static/css/main.2ca47b61.css",
+    "static/js/main.8758b945.js"
   ]
 }
