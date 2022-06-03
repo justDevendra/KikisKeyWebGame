@@ -8,9 +8,9 @@ const DistributoreScreen = () => {
   const { showToast } = useToast();
 
   const compraProdotto1 = () => {
-    if (checkItem("Moneta Rara") && checkItem("Moneta comune")) {
+    if (checkItem("Moneta Rara") && checkItem("Moneta Comune")) {
       aggiungiItem("Patate");
-      rimuoviItem("Moneta comune");
+      rimuoviItem("Moneta Comune");
       rimuoviItem("Moneta Rara");
 
       showToast("Comprato patate!");
