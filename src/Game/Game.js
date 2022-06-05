@@ -110,7 +110,11 @@ const Game = () => {
   return (
     <>
       {/*componente per accendere la musica*/}
-      <ReactHowler src="/audio/musicaMenu.mp3" playing={flagMusica} loop />
+      <ReactHowler
+        src="/KikisKeyWebGame/audio/musicaMenu.wav"
+        playing={flagMusica}
+        loop
+      />
 
       {/*componente provider restituito dal gameContext per fornire i variabili globali agli altri componenti*/}
       <DndProvider backend={HTML5Backend}>
