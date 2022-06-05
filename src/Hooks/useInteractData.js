@@ -5,9 +5,21 @@ import useStanze from "./useStanze";
 import useToast from "./useToast";
 
 const useInteractData = () => {
-  const { gameData, setShowMisteriosoScreen, setShowDistributoreScreen } =
-    useContext(gameContext);
-  const { aggiungiItem, rimuoviItem, checkItem, checkSelectedItem } =
+  const {
+    gameData,
+    setShowMisteriosoScreen,
+    setShowDistributoreScreen,
+    showDistributoreScreenRef,
+    setShowComputerScreen,
+    showComputerScreenRef,
+    setShowCodiceScreen,
+    showCodiceScreenRef,
+    setShowServerScreen,
+    showServerScreenRef,
+    portaBidelleria,
+    ascensore,
+  } = useContext(gameContext);
+  const { aggiungiItem, rimuoviItem, checkSelectedItem } =
     usePlayerItemsManager();
   const { setPortaStanza } = useStanze();
   const { showToast } = useToast();
@@ -110,6 +122,7 @@ const useInteractData = () => {
         if (gameData.current.monetaComuneRaccolta === false) {
           aggiungiItem("Moneta Comune");
           gameData.current.monetaComuneRaccolta = true;
+          showToast("Trovato moneta comune");
         }
       },
     },
@@ -122,6 +135,7 @@ const useInteractData = () => {
       },
       cmd: () => {
         setShowDistributoreScreen((prev) => !prev);
+        showDistributoreScreenRef.current = !showDistributoreScreenRef.current;
       },
     },
     {
@@ -136,6 +150,32 @@ const useInteractData = () => {
       },
     },
     {
+      name: "porta bidelleria esterna",
+      stanza: {
+        name: "corridoio",
+        x: 3264,
+        y: 624,
+      },
+      cmd: () => {
+        if (!portaBidelleria) {
+          showToast("Porta bidelleria chiusa");
+        }
+      },
+    },
+    {
+      name: "porta bidelleria interna",
+      stanza: {
+        name: "bidelleria",
+        x: 960,
+        y: 672,
+      },
+      cmd: () => {
+        if (!portaBidelleria) {
+          showToast("Porta bidelleria chiusa");
+        }
+      },
+    },
+    {
       name: "martella finestra",
       stanza: {
         name: "corridoio",
@@ -143,38 +183,126 @@ const useInteractData = () => {
         y: 1008,
       },
       cmd: () => {
-        if (checkSelectedItem("Martello")) {
+        if (checkSelectedItem("Martello") && !gameData.current.finestraRotta) {
           gameData.current.finestraRotta = true;
           setPortaStanza("corridoio", 6, false);
           setPortaStanza("bidelleria", 1, false);
+          showToast("Finestra spacccatta!!");
+
+          gameData.current.startedCapitoli.tre = true; //capitolo 3 iniziato
         }
       },
     },
     {
-      name: "item badge",
+      name: "pc bidelleria",
+      stanza: {
+        name: "bidelleria",
+        x: 240,
+        y: 384,
+      },
+      cmd: () => {
+        setShowComputerScreen((prev) => !prev);
+        showComputerScreenRef.current = !showComputerScreenRef.current;
+      },
+    },
+    {
+      name: "codice pc bidelleria",
+      stanza: {
+        name: "bidelleria",
+        x: 384,
+        y: 336,
+      },
+      cmd: () => {
+        setShowCodiceScreen((prev) => !prev);
+        showCodiceScreenRef.current = !showCodiceScreenRef.current;
+      },
+    },
+    {
+      name: "server bidelleria",
+      stanza: {
+        name: "bidelleria",
+        x: 192,
+        y: 144,
+      },
+      cmd: () => {
+        setShowServerScreen((prev) => !prev);
+        showServerScreenRef.current = !showServerScreenRef.current;
+      },
+    },
+    {
+      name: "item moneta rara bidelleria",
       stanza: {
         name: "bidelleria",
         x: 672,
         y: 144,
       },
       cmd: () => {
-        aggiungiItem("Badge");
-        showToast("trovato il Badge!");
+        if (!gameData.current.trovataMonetaRaraBidelleria) {
+          aggiungiItem("Moneta Rara");
+          gameData.current.trovataMonetaRaraBidelleria = true;
+          showToast("Trovato moneta rara");
+        }
       },
     },
     {
-      name: "stanza preside",
+      name: "pc aula5",
       stanza: {
-        name: "corridoio",
-        x: 2784,
-        y: 2880,
+        name: "aula5",
+        x: 768,
+        y: 240,
       },
       cmd: () => {
-        if (checkSelectedItem("ID")) {
-          setPortaStanza("corridoio", 7, false);
-          showToast("Porta ufficio preside aperta");
-        } else {
-          showToast("Porta ufficio preside chiusa");
+        setShowComputerScreen((prev) => !prev);
+        showComputerScreenRef.current = !showComputerScreenRef.current;
+      },
+    },
+    {
+      name: "aula5 prof",
+      stanza: {
+        name: "aula5",
+        x: 528,
+        y: 384,
+      },
+      cmd: () => {
+        showToast("Oddio le PASSWORD!!!");
+      },
+    },
+    {
+      name: "porta ascensore esterna 1",
+      stanza: {
+        name: "corridoio",
+        x: 3936,
+        y: 3264,
+      },
+      cmd: () => {
+        if (!ascensore) {
+          showToast("Porta ascensore chiusa");
+        }
+      },
+    },
+    {
+      name: "porta ascensore esterna 2",
+      stanza: {
+        name: "corridoio",
+        x: 3888,
+        y: 3264,
+      },
+      cmd: () => {
+        if (!ascensore) {
+          showToast("Porta ascensore chiusa");
+        }
+      },
+    },
+    {
+      name: "porta ascensore esterna 3",
+      stanza: {
+        name: "corridoio",
+        x: 3984,
+        y: 3264,
+      },
+      cmd: () => {
+        if (!ascensore) {
+          showToast("Porta ascensore chiusa");
         }
       },
     },

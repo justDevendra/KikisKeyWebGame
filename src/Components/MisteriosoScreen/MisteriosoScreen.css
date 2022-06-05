@@ -17,7 +17,9 @@
       -ms-flex-pack: center;
           justify-content: center;
   min-width: 380px;
-  z-index: 98;
+  z-index: 99;
+  min-width: 1152px !important;
+  min-height: 900px !important;
 }
 
 .titoloMisteriosoScreen {

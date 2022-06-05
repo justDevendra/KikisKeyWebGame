@@ -12,6 +12,8 @@ const QuizScreen = () => {
   const { showToast } = useToast();
 
   const check = () => {
+    console.log(risposta);
+    console.log(gameData.current.quizCorrente.risposta);
     if (risposta === gameData.current.quizCorrente.risposta) {
       gameData.current.rispostoDomande[gameData.current.quizCorrente.id] = true;
       aggiungiItem(gameData.current.quizCorrente.ricompensa);

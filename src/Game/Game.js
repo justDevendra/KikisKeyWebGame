@@ -52,16 +52,34 @@ const Game = () => {
 
   const [misteriosoItems, setMisteriosoItems] = useState([
     { itemScambio: "Patate", itemOfferto: "Martello" },
-    { itemScambio: "Badge", itemOfferto: "ID" },
+    { itemScambio: "Bibita", itemOfferto: "ID" },
     { itemScambio: "OctoDuck", itemOfferto: "Forbici" },
   ]);
 
   const [showMisteriosoScreen, setShowMisteriosoScreen] = useState(false);
   const [showQuizScreen, setShowQuizScreen] = useState(false);
+
   const [showDistributoreScreen, setShowDistributoreScreen] = useState(false);
+  const showDistributoreScreenRef = useRef(false);
+
+  const [showComputerScreen, setShowComputerScreen] = useState(false);
+  const showComputerScreenRef = useRef(false);
+
+  const [showCodiceScreen, setShowCodiceScreen] = useState(false);
+  const showCodiceScreenRef = useRef(false);
+
+  const [showServerScreen, setShowServerScreen] = useState(false);
+  const showServerScreenRef = useRef(false);
 
   const [showInfoScreen, setShowInfoScreen] = useState(false);
   const [infoScreenText, setInfoScreenText] = useState("");
+
+  const [isPcOn, setIsPcOn] = useState(false);
+  const [isServerOn, setIsServerOn] = useState(false);
+
+  const [luci, setLuci] = useState(false);
+  const [portaBidelleria, setPortaBidelleria] = useState(false);
+  const [ascensore, setAscensore] = useState(false);
 
   const gameData = useRef({
     stanzaCorrente: "chimica1",
@@ -85,6 +103,8 @@ const Game = () => {
     rispostoDomande: [false, false],
     monetaComuneRaccolta: false,
     finestraRotta: false,
+    isProjectorOn: false,
+    trovataMonetaRaraBidelleria: false,
   });
 
   return (
@@ -121,10 +141,30 @@ const Game = () => {
             setShowQuizScreen,
             showDistributoreScreen,
             setShowDistributoreScreen,
+            showDistributoreScreenRef,
+            showComputerScreen,
+            setShowComputerScreen,
+            showComputerScreenRef,
+            showCodiceScreen,
+            setShowCodiceScreen,
+            showCodiceScreenRef,
+            showServerScreen,
+            setShowServerScreen,
+            showServerScreenRef,
             showInfoScreen,
             setShowInfoScreen,
             infoScreenText,
             setInfoScreenText,
+            isPcOn,
+            setIsPcOn,
+            isServerOn,
+            setIsServerOn,
+            luci,
+            setLuci,
+            portaBidelleria,
+            setPortaBidelleria,
+            ascensore,
+            setAscensore,
             gameData,
           }}
         >

@@ -1,5 +1,4 @@
 import "./Classifica.css";
-import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ParticleBackground from "react-particle-backgrounds";

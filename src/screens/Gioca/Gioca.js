@@ -15,6 +15,9 @@ import Mani from "../../Components/Mani/Mani";
 import MisteriosoScreen from "../../Components/MisteriosoScreen/MisteriosoScreen";
 import QuizScreen from "../../Components/QuizScreen/QuizScreen";
 import DistributoreScreen from "../../Components/DistributoreScreen/DistributoreScreen";
+import ComputerScreen from "../../Components/ComputerScreen/ComputerScreen";
+import CodiceScreen from "../../Components/CodiceScreen/CodiceScreen";
+import ServerScreen from "../../Components/ServerScreen/ServerScreen";
 
 //importo custom hooks
 import { gameContext } from "../../Hooks/useContext";
@@ -40,9 +43,17 @@ const Gioca = () => {
     showMisteriosoScreen,
     showQuizScreen,
     showDistributoreScreen,
+    showDistributoreScreenRef,
+    showComputerScreen,
+    showComputerScreenRef,
+    showCodiceScreen,
+    showCodiceScreenRef,
+    showServerScreen,
+    showServerScreenRef,
     showInfoScreen,
     setShowInfoScreen,
     setInfoScreenText,
+    luci,
   } = useContext(gameContext);
 
   const { clamp } = useClamp();
@@ -61,6 +72,8 @@ const Gioca = () => {
   const canvasRef = useRef(null);
   const monetaComuneRef = useRef(null);
   const finestraRottaRef = useRef(null);
+  const projectorLightRef = useRef(null);
+  const cesareTxtRef = useRef(null);
 
   let timeoutInfoScreen = null;
   let showInfoScreenCap1 = true;
@@ -129,7 +142,21 @@ const Gioca = () => {
         ctx.drawImage(finestraRottaRef.current, 2780, 960);
       }
 
+      if (
+        getStanzaCorrente().name === "aula5" &&
+        gameData.current.isProjectorOn === true
+      ) {
+        ctx.drawImage(cesareTxtRef.current, 980, 110);
+      }
+
       ctx.drawImage(playerRef.current, getPlayer("x"), getPlayer("y"));
+
+      if (
+        getStanzaCorrente().name === "aula5" &&
+        gameData.current.isProjectorOn === true
+      ) {
+        ctx.drawImage(projectorLightRef.current, 908, 180);
+      }
 
       ctx.drawImage(
         bidello1Ref.current,
@@ -168,7 +195,26 @@ const Gioca = () => {
           setShowInfoScreen(false);
           setInfoScreenText("");
           showInfoScreenCap2 = false;
-        }, 2000);
+        }, 2500);
+      }
+
+      //capitolo 3 screen
+      if (
+        gameData.current.startedCapitoli.tre &&
+        showInfoScreenCap3 &&
+        getStanzaCorrente().name === "bidelleria" &&
+        gameData.current.finestraRotta &&
+        getPlayer("x") === 720 &&
+        getPlayer("y") === 816
+      ) {
+        setInfoScreenText("Capitolo 3: La bidelleria");
+        setShowInfoScreen(true);
+
+        timeoutInfoScreen = setTimeout(() => {
+          setShowInfoScreen(false);
+          setInfoScreenText("");
+          showInfoScreenCap3 = false;
+        }, 2500);
       }
     }, 1000 / 60);
 
@@ -194,11 +240,19 @@ const Gioca = () => {
       pauseMenuController(pressedKey);
 
       if (!showPauseMenu) {
-        if (!showQuizScreen && !showMisteriosoScreen) {
+        if (
+          !showQuizScreen &&
+          !showMisteriosoScreen &&
+          !showDistributoreScreenRef.current &&
+          !showComputerScreenRef.current &&
+          !showCodiceScreenRef.current &&
+          !showServerScreenRef.current
+        ) {
           playerController(pressedKey);
           inventarioController(pressedKey);
           maniController(pressedKey);
         }
+
         QuizScreenController(pressedKey, getPlayer("x"), getPlayer("y"));
         interactController(pressedKey, getPlayer("x"), getPlayer("y"));
       }
@@ -218,9 +272,13 @@ const Gioca = () => {
       >
         {showMisteriosoScreen ? <MisteriosoScreen /> : null}
         {showQuizScreen ? <QuizScreen /> : null}
+        {showCodiceScreen ? <CodiceScreen /> : null}
+        {showServerScreen ? <ServerScreen /> : null}
+        {showComputerScreen ? <ComputerScreen /> : null}
         {showDistributoreScreen ? <DistributoreScreen /> : null}
         {showInventario ? <Inventario /> : null}
         {showInfoScreen ? <InfoScreen /> : null}
+        {!luci ? <div className="luciOff" /> : null}
         {showPauseMenu ? <PauseMenu controller={pauseMenuController} /> : null}
 
         <canvas className="canvas" ref={canvasRef} width={1152} height={672}>
@@ -243,6 +301,14 @@ const Gioca = () => {
           <Oggetto
             oggettoRef={finestraRottaRef}
             img="/KikisKeyWebGame/img/misc/finestraRotta.png"
+          />
+          <Oggetto
+            oggettoRef={projectorLightRef}
+            img="/KikisKeyWebGame/img/misc/projectorLight.png"
+          />
+          <Oggetto
+            oggettoRef={cesareTxtRef}
+            img="/KikisKeyWebGame/img/misc/cesare.png"
           />
         </canvas>
         <Mani />
