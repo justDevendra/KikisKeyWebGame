@@ -72,8 +72,8 @@ const PopupItem = (props) => {
     console.log(imgItemOffertoRef.current.src);
     if (props.itemClicked === "Martello") {
       console.log("martello");
-      if (checkItem("Patate")) {
-        rimuoviItem("Patate");
+      if (checkItem("Patatine")) {
+        rimuoviItem("Patatine");
         aggiungiItem("Martello");
         props.showToast("Ottenuto martello!");
       } else {
@@ -81,9 +81,8 @@ const PopupItem = (props) => {
       }
     }
     if (props.itemClicked === "ID") {
-      if (checkItem("Badge") && checkItem("Moneta Epica")) {
-        rimuoviItem("Badge");
-        rimuoviItem("Moneta Epica");
+      if (checkItem("Bibita")) {
+        rimuoviItem("Bibita");
         aggiungiItem("ID");
         props.showToast("Ottenuto ID preside!");
       } else {

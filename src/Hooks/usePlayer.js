@@ -3,14 +3,12 @@ import { useContext, useRef } from "react";
 import { gameContext } from "./useContext";
 import useCollisionDetector from "./useCollisionDetector";
 import useStanze from "./useStanze";
-import useBidello from "./useBidello";
 
 const usePlayer = () => {
   const { playerRef } = useContext(gameContext);
 
   const { checkCambioStanza, updatePlayerPos } = useStanze();
   const { collisionDetectorX, collisionDetectorY } = useCollisionDetector();
-  const { getBidello } = useBidello();
 
   const player = useRef({
     x: 1008,
@@ -41,18 +39,6 @@ const usePlayer = () => {
     } else {
       return player.current.step;
     }
-  };
-
-  const checkBidelloCollision = (direction) => {
-    if (direction === "left") {
-      if (getBidello("bidello1").x.current !== getPlayer("x")) {
-        console.log("no eq");
-        return true;
-      } else {
-        console.log("eq");
-      }
-    }
-    return false;
   };
 
   const playerCmds = [

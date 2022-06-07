@@ -9,11 +9,11 @@ const DistributoreScreen = () => {
 
   const compraProdotto1 = () => {
     if (checkItem("Moneta Rara") && checkItem("Moneta Comune")) {
-      aggiungiItem("Patate");
+      aggiungiItem("Patatine");
       rimuoviItem("Moneta Comune");
       rimuoviItem("Moneta Rara");
 
-      showToast("Comprato patate!");
+      showToast("Comprato patatine!");
     } else {
       showToast("Credito insufficiente");
     }
@@ -36,7 +36,7 @@ const DistributoreScreen = () => {
       <p className="titoloDistributore">Distributore</p>
       <div className="contenitoreProdottiDistri">
         <div className="imgProdotto1">
-          <img src="/KikisKeyWebGame/img/items/Patate.png"></img>
+          <img src="/KikisKeyWebGame/img/items/Patatine.png"></img>
         </div>
         <div className="costoProdotto1">
           <img src="/KikisKeyWebGame/img/items/Moneta Comune.png" />

@@ -16,6 +16,8 @@ const useInteractData = () => {
     showCodiceScreenRef,
     setShowServerScreen,
     showServerScreenRef,
+    setShowAscensoreScreen,
+    showAscensoreScreenRef,
     portaBidelleria,
     ascensore,
   } = useContext(gameContext);
@@ -264,7 +266,7 @@ const useInteractData = () => {
         y: 384,
       },
       cmd: () => {
-        showToast("Oddio le PASSWORD!!!");
+        showToast("Odio le PASSWORD!!!");
       },
     },
     {
@@ -304,6 +306,51 @@ const useInteractData = () => {
         if (!ascensore) {
           showToast("Porta ascensore chiusa");
         }
+      },
+    },
+    {
+      name: "ascensore controller",
+      stanza: {
+        name: "ascensore",
+        x: 720,
+        y: 144,
+      },
+      cmd: () => {
+        if (
+          gameData.current.ascensore.interactAscController &&
+          gameData.current.ascensore.piano.requested === null
+        ) {
+          setShowAscensoreScreen((prev) => !prev);
+          showAscensoreScreenRef.current = !showAscensoreScreenRef.current;
+        }
+      },
+    },
+    {
+      name: "use ID preside",
+      stanza: {
+        name: "corridoio2",
+        x: 576,
+        y: 96,
+      },
+      cmd: () => {
+        if (checkSelectedItem("ID")) {
+          setPortaStanza("corridoio2", 0, false);
+          showToast("Porta ufficio preside aperta");
+        } else {
+          showToast("Porta ufficio preside chiusa");
+        }
+      },
+    },
+    {
+      name: "pc preside",
+      stanza: {
+        name: "ufficioPreside",
+        x: 528,
+        y: 288,
+      },
+      cmd: () => {
+        setShowComputerScreen((prev) => !prev);
+        showComputerScreenRef.current = !showComputerScreenRef.current;
       },
     },
   ]);

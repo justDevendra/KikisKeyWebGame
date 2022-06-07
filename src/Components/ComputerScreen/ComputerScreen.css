@@ -261,7 +261,8 @@ input {
   background-image: url(./../../../assets/img/Gioca/powerOn.png);
 }
 
-.chrome {
+.chrome,
+.classeViva {
   height: 30px;
   width: 30px;
   top: 95px;
@@ -385,5 +386,45 @@ input {
   left: 100%;
   -webkit-transform: translate(calc(-100% - 5px), -50%);
           transform: translate(calc(-100% - 5px), -50%);
+}
+
+.Voti {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.votoDiv {
+  margin-bottom: 20px;
+}
+
+.alza {
+  margin-left: 20px;
+  background-color: #5a5f72;
+  padding: 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+b {
+  color: red;
+}
+
+.salva {
+  cursor: pointer;
+}
+
+.salva:hover {
+  color: #e5b62e;
 }
 /*# sourceMappingURL=ComputerScreen.css.map */

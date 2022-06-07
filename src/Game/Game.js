@@ -27,7 +27,6 @@ const Game = () => {
   const [flagMusica, setFlagMusica] = useState(false);
 
   const playerRef = useRef(null);
-  const bidello1Ref = useRef(null);
   const misteriosoRef = useRef(null);
   const secondario1Ref = useRef(null);
   const secondario2Ref = useRef(null);
@@ -51,7 +50,7 @@ const Game = () => {
   const manoSelezionataRef = useRef(0);
 
   const [misteriosoItems, setMisteriosoItems] = useState([
-    { itemScambio: "Patate", itemOfferto: "Martello" },
+    { itemScambio: "Patatine", itemOfferto: "Martello" },
     { itemScambio: "Bibita", itemOfferto: "ID" },
     { itemScambio: "OctoDuck", itemOfferto: "Forbici" },
   ]);
@@ -71,6 +70,11 @@ const Game = () => {
   const [showServerScreen, setShowServerScreen] = useState(false);
   const showServerScreenRef = useRef(false);
 
+  const [showAscensoreScreen, setShowAscensoreScreen] = useState(false);
+  const showAscensoreScreenRef = useRef(false);
+
+  const [showAscensoreTime, setShowAscensoreTime] = useState(false);
+
   const [showInfoScreen, setShowInfoScreen] = useState(false);
   const [infoScreenText, setInfoScreenText] = useState("");
 
@@ -81,12 +85,19 @@ const Game = () => {
   const [portaBidelleria, setPortaBidelleria] = useState(false);
   const [ascensore, setAscensore] = useState(false);
 
+  const [gameTime, setGameTime] = useState(0);
+  const [isGameTimeRunning, setIsGameTimeRunning] = useState(true);
+
+  const [showGameCompletedScreen, setShowGameCompletedScreen] = useState(false);
+  const showGameCompletedScreenRef = useRef(false);
+
   const gameData = useRef({
     stanzaCorrente: "chimica1",
     startedCapitoli: {
       uno: true,
       due: false,
       tre: false,
+      final: false,
     },
     quizCorrente: {
       id: null,
@@ -105,6 +116,18 @@ const Game = () => {
     finestraRotta: false,
     isProjectorOn: false,
     trovataMonetaRaraBidelleria: false,
+    ascensore: {
+      door: {
+        leftCurrentX: 390,
+        rightCurrentX: 670,
+      },
+      piano: {
+        current: 1,
+        prev: null,
+        requested: null,
+      },
+      interactAscController: true,
+    },
   });
 
   return (
@@ -123,11 +146,14 @@ const Game = () => {
             flagMusica,
             setFlagMusica,
             playerRef,
-            bidello1Ref,
             misteriosoRef,
             secondario1Ref,
             secondario2Ref,
             stanze,
+            gameTime,
+            setGameTime,
+            isGameTimeRunning,
+            setIsGameTimeRunning,
             stanzaLayer1Ref,
             stanzaLayer2Ref,
             msgDialogBox,
@@ -155,6 +181,9 @@ const Game = () => {
             showServerScreen,
             setShowServerScreen,
             showServerScreenRef,
+            showAscensoreScreen,
+            setShowAscensoreScreen,
+            showAscensoreScreenRef,
             showInfoScreen,
             setShowInfoScreen,
             infoScreenText,
@@ -169,6 +198,11 @@ const Game = () => {
             setPortaBidelleria,
             ascensore,
             setAscensore,
+            showAscensoreTime,
+            setShowAscensoreTime,
+            showGameCompletedScreen,
+            setShowGameCompletedScreen,
+            showGameCompletedScreenRef,
             gameData,
           }}
         >

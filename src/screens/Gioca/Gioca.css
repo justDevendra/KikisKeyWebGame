@@ -47,4 +47,10 @@
   min-width: 1152px !important;
   min-height: 900px !important;
 }
+
+.stopwatch {
+  width: 1152px;
+  text-align: left !important;
+  color: #fff;
+}
 /*# sourceMappingURL=Gioca.css.map */

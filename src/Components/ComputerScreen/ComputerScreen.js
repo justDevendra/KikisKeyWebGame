@@ -15,6 +15,9 @@ const ComputerScreen = () => {
     setPortaBidelleria,
     ascensore,
     setAscensore,
+    setShowGameCompletedScreen,
+    showGameCompletedScreenRef,
+    setIsGameTimeRunning,
     gameData,
   } = useContext(gameContext);
   const { setPortaStanza } = useStanze();
@@ -24,6 +27,10 @@ const ComputerScreen = () => {
   const [username, setUsername] = useState("unknown");
   const [password, setPassword] = useState("unknown");
 
+  const [voto1, setVoto1] = useState(2);
+  const [voto2, setVoto2] = useState(4);
+  const [voto3, setVoto3] = useState(1);
+
   useEffect(() => {
     if (gameData.current.stanzaCorrente === "bidelleria") {
       setUsername("Guido");
@@ -31,6 +38,9 @@ const ComputerScreen = () => {
     } else if (gameData.current.stanzaCorrente === "aula5") {
       setUsername("Prof. info");
       setPassword("");
+    } else if (gameData.current.stanzaCorrente === "ufficioPreside") {
+      setUsername("Preside");
+      setPassword("kiki");
     }
   }, []);
 
@@ -43,6 +53,9 @@ const ComputerScreen = () => {
         {gameData.current.stanzaCorrente === "aula5" && (
           <Icon name={"projector"} setCurrentScreen={setCurrentScreen} />
         )}
+        {gameData.current.stanzaCorrente === "ufficioPreside" && (
+          <Icon name={"classeViva"} setCurrentScreen={setCurrentScreen} />
+        )}
 
         <Icon name={"libreOffice"} setCurrentScreen={setCurrentScreen} />
         <Icon name={"help"} setCurrentScreen={setCurrentScreen} />
@@ -51,7 +64,22 @@ const ComputerScreen = () => {
 
         <PowerBtn setIsPcOn={setIsPcOn} setCurrentScreen={setCurrentScreen} />
         <PowerLight isPcOn={isPcOn} />
-
+        {currentScreen === "classeViva" && (
+          <ClasseViva
+            gameData={gameData}
+            setCurrentScreen={setCurrentScreen}
+            isServerOn={isServerOn}
+            voto1={voto1}
+            setVoto1={setVoto1}
+            voto2={voto2}
+            setVoto2={setVoto2}
+            voto3={voto3}
+            setVoto3={setVoto3}
+            setShowGameCompletedScreen={setShowGameCompletedScreen}
+            showGameCompletedScreenRef={showGameCompletedScreenRef}
+            setIsGameTimeRunning={setIsGameTimeRunning}
+          />
+        )}
         {currentScreen === "chromeApp" && (
           <ChromeApp
             setCurrentScreen={setCurrentScreen}
@@ -98,6 +126,8 @@ const Icon = (props) => {
       props.setCurrentScreen("projectorApp");
     } else if (props.name === "chrome") {
       props.setCurrentScreen("chromeApp");
+    } else if (props.name === "classeViva") {
+      props.setCurrentScreen("classeViva");
     }
   };
 
@@ -203,6 +233,68 @@ const ChromeApp = (props) => {
   );
 };
 
+const ClasseViva = (props) => {
+  const salva = () => {
+    props.setIsGameTimeRunning(false);
+    props.setShowGameCompletedScreen(true);
+    props.showGameCompletedScreenRef.current = true;
+  };
+
+  return (
+    <div className="appScreen chromeApp">
+      {props.isServerOn ? (
+        <div className="internet">
+          <div className="url">https://classeViva.it</div>
+          <p>Alunno: Kiki</p>
+          <div className="Voti">
+            <div className="votoDiv">
+              <span>
+                Informatica :
+                <b style={{ color: props.voto1 > 6 && "green" }}>
+                  {" " + props.voto1}
+                </b>
+              </span>
+              <span className="alza" onClick={() => props.setVoto1(10)}>
+                Alza
+              </span>
+            </div>
+            <div className="votoDiv">
+              <span>
+                Matematica :
+                <b style={{ color: props.voto2 > 6 && "green" }}>
+                  {" " + props.voto2}
+                </b>
+              </span>
+              <span className="alza" onClick={() => props.setVoto2(10)}>
+                Alza
+              </span>
+            </div>
+            <div className="votoDiv">
+              <span>
+                Inglese :
+                <b style={{ color: props.voto3 > 6 && "green" }}>
+                  {" " + props.voto3}
+                </b>
+              </span>
+              <span className="alza" onClick={() => props.setVoto3(10)}>
+                Alza
+              </span>
+            </div>
+            <div className="salva" onClick={salva}>
+              SALVA
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="noInternet"></div>
+      )}
+      <div className="closeApp" onClick={() => props.setCurrentScreen("")}>
+        x
+      </div>
+    </div>
+  );
+};
+
 const PowerBtn = (props) => {
   const toggle = () => {
     props.setIsPcOn((prev) => !prev);
@@ -256,14 +348,18 @@ const LockScreen2 = (props) => {
 };
 
 const LockScreen1 = (props) => {
-  console.log(props.username);
+  const onUserClick = () => {
+    console.log(props.username);
+    if (props.usename === "Preside") {
+      props.setCurrentScreen("");
+    } else {
+      props.setCurrentScreen("LockScreen2");
+    }
+  };
 
   return (
     <div className="lockScreen1Container screen">
-      <div
-        className="user"
-        onClick={() => props.setCurrentScreen("LockScreen2")}
-      >
+      <div className="user" onClick={onUserClick}>
         <div className="userImg" />
         <div className="userName">{props.username}</div>
       </div>

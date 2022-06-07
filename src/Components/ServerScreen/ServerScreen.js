@@ -12,8 +12,8 @@ const ServerScreen = () => {
   return (
     <div className="contenitoreServer">
       <p className="titoloServer">Server</p>
-      <div className="server" onClick={toggleSever}>
-        <div className="serverBtn"></div>
+      <div className="server">
+        <div className="serverBtn" onClick={toggleSever}></div>
         <div className="serverBtnBack"></div>
 
         <div
